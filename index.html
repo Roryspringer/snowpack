@@ -11,248 +11,247 @@
 <title>The Snowpack</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f4eee1; --paper-hi:#f8f2e6; --paper-2:#efe6d4; --card:#f7f1e6; --inset:#e7dcc6;
-    --ink:#211d16; --ink-soft:#574f42; --ink-faint:#857b67;
-    --rule:#d9cdb4; --rule-strong:#221e16;
-    --oxblood:#7c2d20; --gold:#a9772a;
-    --build:#56651f; --build-bg:rgba(86,101,31,.12); --build-bd:rgba(86,101,31,.34);
-    --hold:#2f3a56;  --hold-bg:rgba(47,58,86,.10);  --hold-bd:rgba(47,58,86,.30);
-    --erode:#a0522d; --erode-bg:rgba(160,82,45,.12); --erode-bd:rgba(160,82,45,.34);
-    --base:#766c5b;  --base-bg:rgba(118,108,91,.10); --base-bd:rgba(118,108,91,.32);
-    --weather:#46566a; --weather-bg:rgba(70,86,106,.12); --weather-bd:rgba(70,86,106,.32);
-    --hover:rgba(33,29,22,.04); --flash:rgba(169,119,42,.20);
-    --grain-op:.05; --grain-blend:multiply;
+    --bg:#f5f7f9; --card:#ffffff; --inset:#eef1f5; --hover:rgba(23,32,43,.05);
+    --ink:#17202b; --ink-soft:#445163; --ink-faint:#5c6878;
+    --rule:#e1e6ec; --rule-strong:#c9d0d9;
+    --accent:#0b6a85; --accent-tint:rgba(11,106,133,.08);
+    --build:#0084a8; --build-tint:#e2f1f6;
+    --hold:#b4b8be;  --hold-icon:#6b7482; --hold-tint:#eef0f3;
+    --erode:#d0601c; --erode-tint:#fbebe1;
+    --base:#8b95a3;  --base-tint:transparent;
+    --weather:#7b66b5; --weather-tint:#efebf8;
+    --line:#445163; --area:rgba(68,81,99,.08); --flash:rgba(0,132,168,.12);
+    --shadow:0 1px 2px rgba(23,32,43,.06),0 2px 8px rgba(23,32,43,.04);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
       color-scheme:dark;
-      --paper:#15120e; --paper-hi:#1e1a15; --paper-2:#110e0b; --card:#1d1813; --inset:#2a241c;
-      --ink:#eee5d2; --ink-soft:#c3b69d; --ink-faint:#968a74;
-      --rule:#3a3229; --rule-strong:#e6dcc7;
-      --oxblood:#d77a63; --gold:#d6a655;
-      --build:#aebe70; --build-bg:rgba(174,190,112,.13); --build-bd:rgba(174,190,112,.38);
-      --hold:#98abd8;  --hold-bg:rgba(152,171,216,.12); --hold-bd:rgba(152,171,216,.36);
-      --erode:#e39565; --erode-bg:rgba(227,149,101,.13); --erode-bd:rgba(227,149,101,.38);
-      --base:#a99e8a;  --base-bg:rgba(169,158,138,.12); --base-bd:rgba(169,158,138,.34);
-      --weather:#a3b5cb; --weather-bg:rgba(163,181,203,.12); --weather-bd:rgba(163,181,203,.34);
-      --hover:rgba(238,229,210,.05); --flash:rgba(214,166,85,.20);
-      --grain-op:.06; --grain-blend:screen;
+      --bg:#0e1217; --card:#161b22; --inset:#1e252e; --hover:rgba(232,237,243,.06);
+      --ink:#e8edf3; --ink-soft:#b3bfcc; --ink-faint:#909cad;
+      --rule:#28303a; --rule-strong:#3a4450;
+      --accent:#5cc2dc; --accent-tint:rgba(92,194,220,.10);
+      --build:#2aa3c4; --build-tint:rgba(42,163,196,.18);
+      --hold:#555b63;  --hold-icon:#9aa4b2; --hold-tint:rgba(154,164,178,.14);
+      --erode:#e07033; --erode-tint:rgba(224,112,51,.18);
+      --base:#909cad;  --base-tint:transparent;
+      --weather:#a08fe0; --weather-tint:rgba(160,143,224,.16);
+      --line:#b3bfcc; --area:rgba(179,191,204,.10); --flash:rgba(42,163,196,.16);
+      --shadow:0 1px 2px rgba(0,0,0,.35);
     }
   }
   :root[data-theme="dark"]{
     color-scheme:dark;
-    --paper:#15120e; --paper-hi:#1e1a15; --paper-2:#110e0b; --card:#1d1813; --inset:#2a241c;
-    --ink:#eee5d2; --ink-soft:#c3b69d; --ink-faint:#968a74;
-    --rule:#3a3229; --rule-strong:#e6dcc7;
-    --oxblood:#d77a63; --gold:#d6a655;
-    --build:#aebe70; --build-bg:rgba(174,190,112,.13); --build-bd:rgba(174,190,112,.38);
-    --hold:#98abd8;  --hold-bg:rgba(152,171,216,.12); --hold-bd:rgba(152,171,216,.36);
-    --erode:#e39565; --erode-bg:rgba(227,149,101,.13); --erode-bd:rgba(227,149,101,.38);
-    --base:#a99e8a;  --base-bg:rgba(169,158,138,.12); --base-bd:rgba(169,158,138,.34);
-    --weather:#a3b5cb; --weather-bg:rgba(163,181,203,.12); --weather-bd:rgba(163,181,203,.34);
-    --hover:rgba(238,229,210,.05); --flash:rgba(214,166,85,.20);
-    --grain-op:.06; --grain-blend:screen;
+    --bg:#0e1217; --card:#161b22; --inset:#1e252e; --hover:rgba(232,237,243,.06);
+    --ink:#e8edf3; --ink-soft:#b3bfcc; --ink-faint:#909cad;
+    --rule:#28303a; --rule-strong:#3a4450;
+    --accent:#5cc2dc; --accent-tint:rgba(92,194,220,.10);
+    --build:#2aa3c4; --build-tint:rgba(42,163,196,.18);
+    --hold:#555b63;  --hold-icon:#9aa4b2; --hold-tint:rgba(154,164,178,.14);
+    --erode:#e07033; --erode-tint:rgba(224,112,51,.18);
+    --base:#909cad;  --base-tint:transparent;
+    --weather:#a08fe0; --weather-tint:rgba(160,143,224,.16);
+    --line:#b3bfcc; --area:rgba(179,191,204,.10); --flash:rgba(42,163,196,.16);
+    --shadow:0 1px 2px rgba(0,0,0,.35);
   }
 
   *{box-sizing:border-box}
-  html{background:var(--paper)}
-  body{margin:0;font-family:"Newsreader",Georgia,"Times New Roman",serif;color:var(--ink);line-height:1.5;
-    background:radial-gradient(120% 80% at 50% -10%, var(--paper-hi) 0%, var(--paper) 42%, var(--paper-2) 100%);
-    background-color:var(--paper);-webkit-font-smoothing:antialiased;min-height:100%}
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:var(--grain-op);mix-blend-mode:var(--grain-blend);
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
-  .wrap{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:clamp(18px,4vw,46px) 56px}
-  a{color:var(--oxblood)}
-  :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  [hidden]{display:none!important}
+  html{background:var(--bg)}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:clamp(22px,4vw,44px) 56px}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  button{font:inherit;color:inherit}
+  .linkish{appearance:none;background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}
 
-  /* ---- masthead (SOP) ---- */
-  .kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-faint);text-align:center;margin:0 0 10px}
-  @media(max-width:560px){.kicker{letter-spacing:.2em;font-size:10px}}
-  .rule-top{height:3px;background:var(--rule-strong);margin-bottom:-1px}
-  .masthead{border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);padding:14px 0 16px;text-align:center}
-  .masthead h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:clamp(34px,7.5vw,66px);line-height:.96;letter-spacing:-.01em;margin:0;color:var(--ink);text-wrap:balance}
-  .masthead h1 em{font-style:italic;font-weight:500;color:var(--oxblood)}
-  .subhead{font-style:italic;color:var(--ink-soft);font-size:clamp(14px,2.4vw,17px);margin-top:8px;text-wrap:balance}
-  .dateline{display:flex;justify-content:center;gap:6px 18px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);border-top:1px solid var(--rule);margin-top:14px;padding-top:10px}
-  .dateline span:not(:first-child){border-left:1px solid var(--rule);padding-left:18px}
+  /* ---- masthead ---- */
+  .masthead{text-align:center}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 10px}
+  .masthead h1{font-family:"Fraunces",Georgia,serif;font-weight:800;font-size:clamp(42px,8vw,74px);line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+  .masthead h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+  .subhead{font-size:clamp(15.5px,2.4vw,18px);color:var(--ink-soft);margin:12px auto 0;max-width:40rem;text-wrap:balance}
+  .dateline{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--ink-soft);background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:4px 12px;line-height:1.4}
+  button.chip{cursor:pointer;color:var(--accent);font-weight:600}
+  button.chip:hover{border-color:var(--accent)}
 
-  /* ---- tabs (SOP) ---- */
-  .tabs{display:flex;margin:26px 0 6px;border:1px solid var(--rule-strong);border-radius:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .tabs::-webkit-scrollbar{display:none}
-  .tab{flex:1 0 auto;min-width:0;appearance:none;border:0;background:transparent;cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:11px 8px;border-right:1px solid var(--rule);transition:background .18s,color .18s;white-space:nowrap}
-  .tab:last-child{border-right:0}
-  .tab:hover{background:var(--hover);color:var(--ink)}
-  .tab[aria-selected="true"]{background:var(--rule-strong);color:var(--paper)}
-  .tab:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
-  .tab .dot{display:block;font-size:9px;letter-spacing:.06em;opacity:.62;margin-top:2px}
-  .tab[aria-selected="true"] .dot{opacity:.85}
-  .tab-read{border-right:2px solid var(--rule-strong)}
-  @media(max-width:560px){.tab{flex:0 0 auto;font-size:11px;letter-spacing:.05em;padding:10px 12px}}
+  /* ---- tabs ---- */
+  .tabs{display:flex;gap:4px;padding:4px;background:var(--inset);border-radius:12px;margin:26px 0 0}
+  .tab{flex:1 1 0;min-width:0;appearance:none;border:0;background:transparent;border-radius:9px;padding:9px 6px;font-size:14px;font-weight:500;color:var(--ink-soft);cursor:pointer;text-align:center;line-height:1.25}
+  .tab:hover{color:var(--ink);background:var(--hover)}
+  .tab[aria-selected="true"]{background:var(--card);color:var(--ink);font-weight:600;box-shadow:var(--shadow)}
+  .tab .sub{display:block;font-size:11.5px;font-weight:400;color:var(--ink-faint);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media(max-width:820px){
+    .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+    .tab{font-size:13.5px;padding:10px 4px}
+    .tab .sub{display:none}
+  }
 
-  .theme{font-style:italic;color:var(--ink-soft);font-size:clamp(15px,2.6vw,19px);text-align:center;padding:14px 6px 4px;text-wrap:balance}
-  .theme b{font-style:normal;font-weight:600;color:var(--oxblood)}
+  .theme{text-align:center;color:var(--ink-soft);font-size:clamp(15px,2.4vw,17px);margin:16px 0 0;text-wrap:balance}
+  .theme b{color:var(--ink);font-weight:600}
 
-  .grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:34px;margin-top:18px}
-  @media(max-width:840px){.grid{grid-template-columns:minmax(0,1fr);gap:30px}}
+  /* ---- layout ---- */
+  .grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:24px;margin-top:22px;align-items:start}
+  @media(max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+  .col{display:flex;flex-direction:column;gap:20px;min-width:0}
+  .panel{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:clamp(16px,2.6vw,22px);box-shadow:var(--shadow);min-width:0}
+  .h2{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:21px;line-height:1.25;margin:0;text-wrap:balance}
+  .h-row{display:flex;justify-content:space-between;align-items:baseline;gap:6px 12px;flex-wrap:wrap}
+  .meta{font-size:13.5px;color:var(--ink-faint)}
+  .label{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
 
-  .sec-label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-strong);padding-bottom:7px;margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-  .sec-label .meta{letter-spacing:.1em;text-align:right}
-  .card{margin-bottom:30px}
-
-  /* ---- pills ---- */
-  .pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:1px 7px;border-radius:2px;border:1px solid;white-space:nowrap;line-height:1.6}
-  .p-building{color:var(--build);background:var(--build-bg);border-color:var(--build-bd)}
-  .p-holding{color:var(--hold);background:var(--hold-bg);border-color:var(--hold-bd)}
-  .p-eroding{color:var(--erode);background:var(--erode-bg);border-color:var(--erode-bd)}
-  .p-baseline{color:var(--base);background:var(--base-bg);border-color:var(--base-bd)}
-  .p-weather{color:var(--weather);background:var(--weather-bg);border-color:var(--weather-bd)}
-  .r-building{--bar:var(--build)} .r-holding{--bar:var(--hold)} .r-eroding{--bar:var(--erode)}
-  .r-baseline{--bar:var(--base)} .r-weather{--bar:var(--weather)}
+  /* ---- icons and pills ---- */
+  .ic{width:12px;height:12px;flex:none;display:inline-block;vertical-align:-1px}
+  .ic-building{fill:var(--build)} .ic-eroding{fill:var(--erode)} .ic-holding{fill:var(--hold-icon)}
+  .ic-baseline{fill:none;stroke:var(--base);stroke-width:2} .ic-weather{fill:none;stroke:var(--weather);stroke-width:2;stroke-linecap:round}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);padding:3px 11px 3px 9px;border-radius:999px;background:var(--tint);white-space:nowrap;line-height:1.45}
+  .p-building{--tint:var(--build-tint)} .p-holding{--tint:var(--hold-tint)} .p-eroding{--tint:var(--erode-tint)}
+  .p-weather{--tint:var(--weather-tint)} .p-baseline{--tint:var(--base-tint);box-shadow:inset 0 0 0 1px var(--base)}
 
   /* ---- the read ---- */
-  .tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 8px}
-  .tile{border:1px solid var(--rule);background:var(--card);border-radius:3px;padding:15px 8px 13px;text-align:center}
-  .tile-val{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:clamp(36px,6vw,46px);line-height:1;font-variant-numeric:tabular-nums}
-  .v-building{color:var(--build)} .v-holding{color:var(--hold)} .v-eroding{color:var(--erode)}
-  .tile-lab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
-  .tile-sub{font-size:12.5px;font-style:italic;color:var(--ink-faint);margin-top:1px}
-  .tally-foot{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.05em;color:var(--ink-faint);margin:0 0 20px}
-  .editors{border-left:2px solid var(--gold);padding:2px 0 2px 16px;margin:0 0 32px}
-  .ed-lab{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
-  .editors p{margin:0;font-size:16.5px;line-height:1.62;max-width:64ch}
+  .lede p{margin:0 0 10px;font-size:17.5px;line-height:1.6;max-width:64ch}
+  .lede .ai-note{font-size:14.5px;color:var(--ink-soft);margin:0}
+  .tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+  .tile{border:1px solid var(--rule);border-radius:12px;padding:14px 12px 12px;background:var(--card)}
+  .tile-top{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600}
+  .tile-val{font-family:"Fraunces",Georgia,serif;font-weight:800;font-size:clamp(36px,6vw,48px);line-height:1;margin-top:8px}
+  .tile-sub{font-size:13px;color:var(--ink-faint);margin-top:4px;line-height:1.35}
+  .key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--ink-soft);margin:14px 0 0}
+  .key span{display:inline-flex;align-items:center;gap:6px}
+  .key b{color:var(--ink);font-weight:600}
+  .key-note{font-size:13.5px;color:var(--ink-faint);margin:8px 0 0}
+  .editors p{margin:8px 0 0;font-size:16.5px;line-height:1.65;max-width:66ch}
 
-  .sbars{display:flex;flex-direction:column;gap:4px;margin:10px 0 30px}
-  .sbar{appearance:none;background:transparent;border:0;width:100%;text-align:left;cursor:pointer;padding:8px 6px;border-radius:3px;color:inherit;font:inherit;display:grid;gap:7px}
+  .sbars{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+  .sbar{appearance:none;background:transparent;border:0;width:100%;text-align:left;cursor:pointer;padding:10px 8px;border-radius:10px;display:grid;gap:8px}
   .sbar:hover{background:var(--hover)}
-  .sbar-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-  .sbar-name{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:15.5px}
-  .sbar-name .n{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12px;color:var(--gold);margin-right:8px}
-  .sbar-counts{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
-  .sbar-counts .cb{color:var(--build)} .sbar-counts .ch{color:var(--hold)} .sbar-counts .ce{color:var(--erode)}
-  .sbar-track{display:flex;gap:2px;height:8px;border-radius:3px;overflow:hidden;background:var(--inset)}
+  .sbar-head{display:flex;justify-content:space-between;align-items:baseline;gap:6px 12px;flex-wrap:wrap}
+  .sbar-name{font-weight:600;font-size:15.5px}
+  .sbar-name .n{color:var(--ink-faint);font-weight:500;margin-right:8px;font-size:13px}
+  .counts{display:inline-flex;gap:12px;font-size:13.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .counts span{display:inline-flex;align-items:center;gap:5px}
+  .track{display:flex;gap:2px;height:10px;border-radius:5px;overflow:hidden;background:var(--inset)}
   .seg{display:block;height:100%}
   .seg.b{background:var(--build)} .seg.h{background:var(--hold)} .seg.e{background:var(--erode)}
 
-  .wire-sec{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);padding:18px 0 6px;border-bottom:1px solid var(--rule)}
-  .wire-sec:first-child{padding-top:8px}
-  .wire-sec b{color:var(--ink-soft);font-weight:500}
-  .wire-row{appearance:none;background:transparent;border:0;border-bottom:1px solid var(--rule);width:100%;text-align:left;cursor:pointer;color:var(--ink);font:inherit;position:relative;
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(4.5rem,auto) minmax(0,10.5rem) 5.8rem;grid-template-areas:"name val chg pill";gap:4px 14px;align-items:baseline;padding:10px 4px 10px 15px}
-  .wire-row::before{content:"";position:absolute;left:0;top:11px;bottom:11px;width:3px;border-radius:2px;background:var(--bar)}
+  .wire-sec{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);padding:18px 0 8px;border-bottom:1px solid var(--rule)}
+  .wire-sec:first-child{padding-top:6px}
+  .wire-sec .counts{text-transform:none;letter-spacing:0;font-weight:500;font-size:13px}
+  .wire-row{appearance:none;background:transparent;border:0;border-bottom:1px solid var(--rule);width:100%;text-align:left;cursor:pointer;
+    display:grid;grid-template-columns:minmax(0,1fr) 6.6rem minmax(0,9rem) 7.2rem;grid-template-areas:"name val chg pill";gap:4px 14px;align-items:center;padding:11px 6px}
   .wire-row:hover{background:var(--hover)}
-  .w-name{grid-area:name;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:15px;line-height:1.25}
-  .w-val{grid-area:val;font-family:"IBM Plex Mono",monospace;font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .w-val small{font-size:10px;font-weight:400;color:var(--ink-faint);margin-left:5px;letter-spacing:.04em}
-  .w-chg{grid-area:chg;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft)}
-  .w-chg .arr,.g-chg .arr,.tn-arrow{color:var(--bar)}
+  .w-name{grid-area:name;font-weight:600;font-size:15px;line-height:1.3}
+  .w-val{grid-area:val;font-weight:600;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .w-val small{display:block;font-size:12.5px;font-weight:400;color:var(--ink-faint);white-space:normal;line-height:1.3}
+  .w-chg{grid-area:chg;font-size:13.5px;color:var(--ink-soft);line-height:1.35}
   .w-pill{grid-area:pill;justify-self:end}
-  @media(max-width:620px){
+  @media(max-width:640px){
     .wire-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name pill" "val chg"}
+    .w-val small{display:inline;margin-left:6px}
     .w-chg{justify-self:end;text-align:right}
   }
 
   /* ---- gauges ---- */
-  .means{font-size:15.5px;color:var(--ink-soft);margin:12px 0 4px;max-width:62ch}
-  .means b{color:var(--ink);font-weight:500}
-  .gauge{position:relative;padding:22px 4px 22px 18px;border-bottom:1px solid var(--rule);scroll-margin-top:16px;border-radius:2px}
-  .gauge::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:2px;background:var(--bar)}
-  .gauge.flash{animation:flash 1.8s ease-out}
-  @keyframes flash{0%{background:var(--flash)}100%{background:transparent}}
-  .g-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px}
-  .g-name{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:19px;line-height:1.22;margin:0;text-wrap:balance}
-  .g-tags{display:flex;gap:6px;flex-wrap:wrap}
-  .g-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px 24px;align-items:end;margin-top:12px}
+  .means{font-size:16px;color:var(--ink-soft);margin:6px 0 0;max-width:64ch}
+  .means b{color:var(--ink);font-weight:600}
+  .gauge{scroll-margin-top:16px}
+  .gauge.flash{animation:flash 2s ease-out}
+  @keyframes flash{0%{box-shadow:0 0 0 4px var(--flash)}100%{box-shadow:var(--shadow)}}
+  .g-head{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:8px 12px}
+  .g-name{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:21px;line-height:1.25;margin:0;text-wrap:balance}
+  .g-plain{font-size:15px;color:var(--ink-soft);margin:6px 0 0;max-width:62ch}
+  .g-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px 26px;align-items:end;margin-top:16px}
   .g-body.stack{grid-template-columns:minmax(0,1fr);align-items:start}
-  @media(max-width:620px){.g-body{grid-template-columns:minmax(0,1fr)}}
-  .g-val{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:clamp(34px,5.4vw,44px);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
-  .g-per{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-top:7px}
-  .g-sub{font-size:14px;color:var(--ink-soft);margin-top:2px;line-height:1.4}
-  .g-chg{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);margin-top:9px}
-  .g-prior{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);margin-top:2px}
+  @media(max-width:640px){.g-body{grid-template-columns:minmax(0,1fr)}}
+  .g-val{font-family:"Fraunces",Georgia,serif;font-weight:800;font-size:clamp(36px,5.6vw,46px);line-height:1;letter-spacing:-.01em}
+  .g-per{font-size:13.5px;font-weight:500;color:var(--ink-faint);margin-top:8px}
+  .g-sub{font-size:14.5px;color:var(--ink-soft);margin-top:2px;line-height:1.4}
+  .g-chg{font-size:15px;font-weight:600;margin-top:10px}
+  .g-prior{font-size:13.5px;color:var(--ink-faint);margin-top:2px}
   .g-viz{min-width:0}
-  .g-why{font-size:15.5px;margin:16px 0 0;max-width:62ch}
-  .g-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;margin:12px 0 0}
-  @media(max-width:620px){.g-meta{grid-template-columns:minmax(0,1fr)}}
-  .g-meta dt{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 2px}
-  .g-meta dd{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-  .g-foot{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:14px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--ink-faint)}
-  .g-foot a{text-decoration-thickness:1px;text-underline-offset:2px}
+  .g-why{font-size:16px;margin:18px 0 0;max-width:64ch}
+  .g-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px;margin:16px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+  @media(max-width:640px){.g-meta{grid-template-columns:minmax(0,1fr)}}
+  .g-meta dt{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 3px}
+  .g-meta dd{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+  .g-meta .wide{grid-column:1/-1}
+  .g-foot{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:14px;font-size:13.5px;color:var(--ink-faint)}
+  .copy{appearance:none;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);background:var(--card);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600;color:var(--ink-soft);cursor:pointer}
+  .copy:hover{border-color:var(--accent);color:var(--accent)}
+  .copy svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-  .spark{display:block;width:100%;height:auto;color:var(--bar);overflow:visible}
+  .spark{display:block;width:100%;height:auto;overflow:visible}
   .spark .gl{stroke:var(--rule);stroke-width:1}
-  .spark .gl.faint{stroke-dasharray:2 3}
+  .spark .gl.faint{stroke-dasharray:2 4}
   .spark .ref{stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:4 3}
-  .spark .ar{fill:currentColor;opacity:.1}
-  .spark .ln{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
-  .spark .ln.s2{stroke-dasharray:4 3;opacity:.8}
-  .spark .pt{fill:var(--paper);stroke:currentColor;stroke-width:1.3}
-  .spark .end{fill:currentColor}
-  .spark text{font-family:"IBM Plex Mono",monospace;font-size:9.5px;fill:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .spark .ar{fill:var(--area)}
+  .spark .ln{fill:none;stroke:var(--line);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+  .spark .ln.s2{stroke-dasharray:5 4;opacity:.75}
+  .spark .pt{fill:var(--card);stroke:var(--line);stroke-width:1.5}
+  .spark .end{stroke:var(--card);stroke-width:2}
+  .r-building .spark .end{fill:var(--build)} .r-eroding .spark .end{fill:var(--erode)} .r-holding .spark .end{fill:var(--hold-icon)}
+  .r-weather .spark .end{fill:var(--weather)} .r-baseline .spark .end{fill:var(--base)}
+  .spark text{font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:10.5px;fill:var(--ink-soft);font-variant-numeric:tabular-nums}
   .spark text.lab-end{fill:var(--ink);font-weight:600}
-  .spark text.per{fill:var(--ink-faint);font-size:8.5px;letter-spacing:.06em}
-  .spark text.reflab{fill:var(--ink-faint);font-size:8.5px}
-  .spark-key{display:flex;gap:14px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-soft);margin-top:4px}
-  .spark-key i{display:inline-block;width:16px;height:0;border-top:2px solid var(--bar);vertical-align:middle;margin-right:6px}
-  .spark-key i.k2{border-top-style:dashed}
+  .spark text.per,.spark text.reflab{fill:var(--ink-faint);font-size:10px}
+  .spark-key{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft);margin-top:6px}
+  .spark-key i{display:inline-block;width:18px;height:0;border-top:2px solid var(--line);vertical-align:middle;margin-right:6px}
+  .spark-key i.k2{border-top-style:dashed;opacity:.8}
 
-  .tn{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:center;border:1px solid var(--rule);background:var(--card);border-radius:3px;padding:12px 14px}
-  .tn-lab{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
-  .tn-val{display:block;font-size:14.5px;color:var(--ink-soft);line-height:1.35}
-  .tn .now .tn-val{color:var(--ink);font-weight:500}
-  .tn-arrow{font-family:"IBM Plex Mono",monospace;font-size:15px}
+  .tn{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:center;background:var(--inset);border-radius:12px;padding:14px 16px}
+  .tn-lab{display:block;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  .tn-val{display:block;font-size:15px;color:var(--ink-soft);line-height:1.35}
+  .tn .now .tn-val{color:var(--ink);font-weight:600}
+  .tn-arrow{color:var(--ink-faint);font-size:18px}
 
-  .tl{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
-  .tl li{display:grid;grid-template-columns:6.6rem minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px dotted var(--rule)}
-  .tl-when{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);padding-top:2px;font-variant-numeric:tabular-nums}
-  .tl-what{font-size:14px;line-height:1.45}
+  .tl{list-style:none;margin:0;padding:0}
+  .tl li{display:grid;grid-template-columns:6.8rem minmax(0,1fr);gap:12px;padding:9px 0;border-top:1px solid var(--rule)}
+  .tl li:first-child{border-top:0;padding-top:0}
+  .tl-when{font-size:13.5px;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .tl-what{font-size:15px;line-height:1.45}
 
   /* ---- aside ---- */
-  .principle{padding:13px 0;border-bottom:1px solid var(--rule)}
-  .principle:last-child{border-bottom:0}
-  .principle h4{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:16px;margin:0 0 3px;text-wrap:balance}
-  .principle h4 .n{font-family:"IBM Plex Mono",monospace;color:var(--gold);font-size:13px;margin-right:8px}
-  .principle p{font-size:13.5px;color:var(--ink-soft);margin:0}
-  .press{list-style:none;margin:8px 0 0;padding:0}
-  .press li{display:grid;grid-template-columns:6.9rem minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid var(--rule)}
-  .press li:last-child{border-bottom:0}
-  .press .when{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);padding-top:2px;font-variant-numeric:tabular-nums}
-  .press .what{font-size:14px;line-height:1.4}
-  .press .sec{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-top:2px}
-  .empty{font-style:italic;color:var(--ink-faint);font-size:14px;margin:10px 0 0}
-  .note-p{font-size:14px;color:var(--ink-soft);margin:10px 0 0}
+  .principle{padding:14px 0;border-top:1px solid var(--rule)}
+  .principle:first-of-type{border-top:0}
+  .principle h4{font-size:15.5px;font-weight:600;margin:0 0 3px;line-height:1.35}
+  .principle h4 .n{color:var(--accent);margin-right:8px;font-weight:700}
+  .principle p{font-size:14.5px;color:var(--ink-soft);margin:0}
+  .press{list-style:none;margin:10px 0 0;padding:0}
+  .press li{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:10px;padding:10px 0;border-top:1px solid var(--rule)}
+  .press li:first-child{border-top:0}
+  .press .when{font-size:13.5px;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .press .what{font-size:14.5px;line-height:1.4}
+  .press .sec{display:block;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+  .note-p{font-size:14.5px;color:var(--ink-soft);margin:10px 0 0}
+  .empty{color:var(--ink-faint);font-size:14.5px;margin:10px 0 0}
   .mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
-  .mini .tile{padding:10px 6px 9px}
+  .mini .tile{padding:10px 8px}
   .mini .tile-val{font-size:30px}
-  .mini .tile-lab{font-size:9.5px;letter-spacing:.14em;margin-top:5px}
-  .legend{display:grid;gap:10px;margin-top:12px}
-  .legend div{display:grid;grid-template-columns:5.6rem minmax(0,1fr);gap:10px;align-items:baseline}
-  .legend p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+  .legend{display:grid;gap:12px;margin-top:12px}
+  .legend div{display:grid;grid-template-columns:7.4rem minmax(0,1fr);gap:10px;align-items:center}
+  .legend p{margin:0;font-size:14px;color:var(--ink-soft)}
 
-  /* ---- public edition: lede, about, rules ---- */
-  .lede{margin:6px 0 26px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
-  .lede p{margin:0 0 10px;font-size:17px;line-height:1.6;max-width:64ch}
-  .lede .ai-note{font-size:14px;color:var(--ink-soft);margin:0}
-  .linkish{appearance:none;background:none;border:0;padding:0;font:inherit;color:var(--oxblood);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;cursor:pointer}
-  .dl-btn{appearance:none;background:none;border:0;padding:0;font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--oxblood);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
-  .about h3{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:20px;line-height:1.25;margin:28px 0 8px;text-wrap:balance}
-  .about h3:first-child{margin-top:14px}
-  .about p{font-size:16px;line-height:1.62;margin:0 0 12px;max-width:64ch}
-  .rule-sec{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);padding:18px 0 6px;border-bottom:1px solid var(--rule)}
-  .rule-row{display:grid;grid-template-columns:minmax(0,11.5rem) minmax(0,1fr) 5.8rem;gap:6px 16px;padding:10px 0;border-bottom:1px solid var(--rule);align-items:baseline}
-  .rule-name{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:14.5px;line-height:1.3}
-  .rule-text{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  /* ---- about ---- */
+  .about h3{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:20px;margin:26px 0 8px;line-height:1.25}
+  .about h3:first-of-type{margin-top:12px}
+  .about p{font-size:16px;line-height:1.62;margin:0 0 12px;max-width:66ch}
+  .rule-sec{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);padding:18px 0 8px;border-bottom:1px solid var(--rule)}
+  .rule-row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) 7.2rem;gap:6px 16px;padding:11px 0;border-bottom:1px solid var(--rule);align-items:center}
+  .rule-name{font-weight:600;font-size:14.5px;line-height:1.35}
+  .rule-text{font-size:14px;color:var(--ink-soft);line-height:1.5}
   .rule-row .pill{justify-self:end}
-  @media(max-width:620px){.rule-row{grid-template-columns:minmax(0,1fr) auto}.rule-text{grid-column:1/-1}}
+  @media(max-width:640px){.rule-row{grid-template-columns:minmax(0,1fr) auto}.rule-text{grid-column:1/-1}}
   .corr{list-style:none;margin:6px 0 0;padding:0}
-  .corr li{display:grid;grid-template-columns:6.8rem minmax(0,1fr);gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:14px}
-  .corr .when{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);padding-top:2px}
-  .g-meta .wide{grid-column:1/-1}
+  .corr li{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
 
-  .endnote{margin-top:34px;border-top:1px solid var(--rule);padding-top:12px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-faint);text-align:center;line-height:1.7;text-wrap:balance}
-  .endnote b{color:var(--oxblood);font-weight:600;letter-spacing:.1em}
+  .endnote{margin-top:34px;padding-top:16px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-faint);text-align:center;line-height:1.65;text-wrap:balance}
+  .endnote b{color:var(--ink-soft)}
+
+  .toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 16px;font-size:14px;font-weight:500;box-shadow:0 6px 24px rgba(0,0,0,.2);z-index:50;max-width:calc(100vw - 32px)}
+  .toast input{display:block;width:min(420px,80vw);margin-top:8px;font:inherit;font-size:13px;padding:6px 8px;border-radius:8px;border:0;background:var(--card);color:var(--ink)}
 
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -261,21 +260,21 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="rule-top"></div>
-  <p class="kicker">The Standard &nbsp;&middot;&nbsp; Bureau of Leverage</p>
   <header class="masthead">
+    <p class="kicker">The Standard &middot; Bureau of Leverage</p>
     <h1>The <em>Snowpack</em></h1>
-    <div class="subhead">A monthly read on whether the pressure is building. Measured data only, sourced line by line.</div>
+    <p class="subhead">A monthly read on whether the pressure for big economic change is building. Public data, sourced line by line.</p>
     <div class="dateline" id="dateline"></div>
   </header>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Sections"></nav>
-  <div class="theme" id="theme"></div>
+  <p class="theme" id="theme"></p>
   <div id="view"></div>
-  <div class="endnote">
-    <b>Made largely with AI.</b> &nbsp; Compiled and updated by Claude, an AI model from Anthropic, and reviewed by The Standard before each edition goes out.<br>
+  <footer class="endnote">
+    <b>Made largely with AI.</b> Compiled and updated by Claude, an AI model from Anthropic, and reviewed by The Standard before each edition goes out.<br>
     Every figure links to its source. Check anything before you cite it.
-  </div>
+  </footer>
 </div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <script type="application/json" id="snowpack-data">{
  "meta": {
@@ -341,7 +340,8 @@
     "section": "snowpack"
    }
   ],
-  "corrections": []
+  "corrections": [],
+  "publicUrl": "https://roryspringer0.github.io/snowpack/"
  },
  "gauges": [
   {
@@ -419,7 +419,8 @@
     12
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year. A move smaller than 0.2 pt counts as holding."
+   "rule": "Compared with the prior year. A move smaller than 0.2 pt counts as holding.",
+   "plain": "The share of US workers who belong to a union."
   },
   {
    "id": "gap",
@@ -506,7 +507,8 @@
     70
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year. A move smaller than 4 pts counts as holding, since Gallup's margin of error is about 4 points."
+   "rule": "Compared with the prior year. A move smaller than 4 pts counts as holding, since Gallup's margin of error is about 4 points.",
+   "plain": "The share of Americans who approve of unions, minus the share who actually belong to one."
   },
   {
    "id": "petitions",
@@ -545,7 +547,8 @@
    "asOf": "Fiscal year ended Sep 30, 2025",
    "next": "FY2026 totals, Oct–Nov 2026",
    "updated": "2026-09-26",
-   "rule": "Compared with the same period a year earlier. A change smaller than 5% counts as holding."
+   "rule": "Compared with the same period a year earlier. A change smaller than 5% counts as holding.",
+   "plain": "Each petition is a group of workers formally asking the labor board for a union vote."
   },
   {
    "id": "win-rate",
@@ -608,7 +611,8 @@
     90
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior fiscal year. A move smaller than 3 pts counts as holding."
+   "rule": "Compared with the prior fiscal year. A move smaller than 3 pts counts as holding.",
+   "plain": "When workers hold a union vote, how often the union wins."
   },
   {
    "id": "strikes",
@@ -679,7 +683,8 @@
     500
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year. A change smaller than 10% counts as holding."
+   "rule": "Compared with the prior year. A change smaller than 10% counts as holding.",
+   "plain": "Every strike and lockout Cornell's tracker found, of any size."
   },
   {
    "id": "major-stoppages",
@@ -738,7 +743,8 @@
     40
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year. A change smaller than 15% counts as holding, because the counts are small."
+   "rule": "Compared with the prior year. A change smaller than 15% counts as holding, because the counts are small.",
+   "plain": "Strikes and lockouts involving at least 1,000 workers."
   },
   {
    "id": "protest-reach",
@@ -773,7 +779,8 @@
    "asOf": "Analysis published Oct 2025",
    "next": "Next CCC analysis",
    "updated": "2026-09-26",
-   "rule": "Compared with the previous published figure. A change smaller than 15% counts as holding."
+   "rule": "Compared with the previous published figure. A change smaller than 15% counts as holding.",
+   "plain": "How many people showed up to protests for every 10,000 people living in a county."
   },
   {
    "id": "ballot-measures",
@@ -830,7 +837,8 @@
    "asOf": "Latest vote Jun 16, 2026",
    "next": "Nov 3, 2026",
    "updated": "2026-09-26",
-   "rule": "Pro-worker measures on red-state ballots in the latest election, against the previous one. A legislature repealing a measure voters passed counts as eroding."
+   "rule": "Pro-worker measures on red-state ballots in the latest election, against the previous one. A legislature repealing a measure voters passed counts as eroding.",
+   "plain": "Measures voters put on the ballot to raise wages or require sick leave, in states that vote Republican."
   },
   {
    "id": "insurgents",
@@ -911,7 +919,8 @@
     5
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the previous cycle. A difference of one or less counts as holding."
+   "rule": "Compared with the previous cycle. A difference of one or less counts as holding.",
+   "plain": "Sitting House Democrats who lost their primary to a challenger running to their left."
   },
   {
    "id": "youth-turnout",
@@ -997,7 +1006,8 @@
     60
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the same kind of election, midterm with midterm and presidential with presidential. A move smaller than 2 pts counts as holding."
+   "rule": "Compared with the same kind of election, midterm with midterm and presidential with presidential. A move smaller than 2 pts counts as holding.",
+   "plain": "The share of eligible 18- to 29-year-olds who voted."
   },
   {
    "id": "econ-trust",
@@ -1032,7 +1042,8 @@
    "asOf": "Poll Sep 11–15, 2026",
    "next": "Monthly",
    "updated": "2026-09-26",
-   "rule": "Weather. Shown for context and never counted."
+   "rule": "Weather. Shown for context and never counted.",
+   "plain": "Which party voters trust more on the economy. D+1 means Democrats lead by one point."
   },
   {
    "id": "delinquency",
@@ -1063,7 +1074,8 @@
    "asOf": "Released Aug 11, 2026",
    "next": "Early Nov 2026",
    "updated": "2026-09-26",
-   "rule": "Compared with the prior quarter. A move smaller than 0.3 pt counts as holding. Rising counts as building, because it means more strain."
+   "rule": "Compared with the prior quarter. A move smaller than 0.3 pt counts as holding. Rising counts as building, because it means more strain.",
+   "plain": "The share of all household debt, from mortgages to credit cards, that is behind on payments."
   },
   {
    "id": "sentiment",
@@ -1126,7 +1138,8 @@
     "label": "long-run avg 83.6"
    },
    "updated": "2026-09-26",
-   "rule": "Compared with a year earlier. A move smaller than 5 points counts as holding. Falling counts as building, because it means more strain."
+   "rule": "Compared with a year earlier. A move smaller than 5 points counts as holding. Falling counts as building, because it means more strain.",
+   "plain": "A monthly survey of how people feel about their money and the economy. The scale starts at 100 in 1966, and lower means gloomier."
   },
   {
    "id": "institutions",
@@ -1191,7 +1204,8 @@
     35
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year. A move smaller than 2 pts counts as holding. Falling counts as building, because it means more strain."
+   "rule": "Compared with the prior year. A move smaller than 2 pts counts as holding. Falling counts as building, because it means more strain.",
+   "plain": "The average share of Americans with a lot of confidence in 14 major institutions, such as Congress, the police and the medical system."
   },
   {
    "id": "top1",
@@ -1250,7 +1264,8 @@
     34
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior quarter. A move smaller than 0.5 pt counts as holding. Falling counts as building."
+   "rule": "Compared with the prior quarter. A move smaller than 0.5 pt counts as holding. Falling counts as building.",
+   "plain": "How much of all household wealth belongs to the richest 1% of households."
   },
   {
    "id": "labor-share",
@@ -1309,7 +1324,8 @@
     58
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior quarter. A move smaller than 0.5 pt counts as holding. Rising counts as building."
+   "rule": "Compared with the prior quarter. A move smaller than 0.5 pt counts as holding. Rising counts as building.",
+   "plain": "Out of every dollar private businesses produce, the part paid to workers in wages and benefits."
   },
   {
    "id": "profits",
@@ -1388,7 +1404,8 @@
    "domain": [
     8,
     15
-   ]
+   ],
+   "plain": "Out of everything the economy produces, the share that ends up as corporate profit after taxes."
   },
   {
    "id": "union-avoidance",
@@ -1419,7 +1436,8 @@
    "asOf": "EPI, May 20, 2026",
    "next": "Next EPI update",
    "updated": "2026-09-26",
-   "rule": "Baseline until a second comparable estimate. After that, rising spending while petitions also rise counts as building, and rising spending while petitions fall counts as eroding."
+   "rule": "Baseline until a second comparable estimate. After that, rising spending while petitions also rise counts as building, and rising spending while petitions fall counts as eroding.",
+   "plain": "What companies pay consultants and law firms each year to keep workers from unionizing."
   },
   {
    "id": "corporate-money",
@@ -1478,7 +1496,8 @@
     700
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the previous cycle's total. A change smaller than 10% counts as holding. Falling counts as building."
+   "rule": "Compared with the previous cycle's total. A change smaller than 10% counts as holding. Falling counts as building.",
+   "plain": "Money corporations gave directly to political groups for federal elections this cycle."
   },
   {
    "id": "ca-union",
@@ -1543,7 +1562,8 @@
     18
    ],
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year. A move smaller than 0.3 pt counts as holding."
+   "rule": "Compared with the prior year. A move smaller than 0.3 pt counts as holding.",
+   "plain": "The share of California workers who belong to a union."
   },
   {
    "id": "ca-strikes",
@@ -1578,7 +1598,8 @@
    "asOf": "Annual report, Feb 2026",
    "next": "Feb 2027",
    "updated": "2026-09-26",
-   "rule": "Compared with the prior year and checked against the number of strikers. A share move smaller than 3 pts counts as holding."
+   "rule": "Compared with the prior year and checked against the number of strikers. A share move smaller than 3 pts counts as holding.",
+   "plain": "Of all US workers who went on strike, the share in Western states, mostly California."
   },
   {
    "id": "fast-food-council",
@@ -1627,7 +1648,8 @@
    "asOf": "CalMatters, May 2026",
    "next": "Watch for a chair appointment",
    "updated": "2026-09-26",
-   "rule": "Building once a chair is named and the council meets or raises the wage. Eroding while it stays dormant."
+   "rule": "Building once a chair is named and the council meets or raises the wage. Eroding while it stays dormant.",
+   "plain": "The state board that sets wages for California's fast-food workers."
   },
   {
    "id": "ab288",
@@ -1676,7 +1698,8 @@
    "asOf": "Order of Dec 26, 2025",
    "next": "Watch for an appeal",
    "updated": "2026-09-26",
-   "rule": "Building if the injunction is lifted or a narrower law survives. Eroding while the law is blocked."
+   "rule": "Building if the injunction is lifted or a narrower law survives. Eroding while the law is blocked.",
+   "plain": "A 2025 California law letting the state labor board handle private-sector cases when the federal board can't or won't."
   }
  ]
 }</script>
@@ -1686,22 +1709,22 @@
   var SEED = JSON.parse(document.getElementById("snowpack-data").textContent);
 
   var SECTIONS = [
-    {key:"snowpack", num:"I", name:"Snowpack", dot:"organize",
-      theme:"Organization. <b>Approval is free. Membership costs something.</b>",
+    {key:"snowpack", num:"I", name:"Snowpack", sub:"organizing",
+      theme:"Organizing. <b>Approval is free. Membership costs something.</b>",
       means:"more workers organized, and more of the approval turning into membership."},
-    {key:"movement", num:"II", name:"Movement", dot:"act",
+    {key:"movement", num:"II", name:"Movement", sub:"strikes and protest",
       theme:"Action. <b>The places where people stopped asking.</b>",
       means:"more people taking action, and bigger actions."},
-    {key:"power", num:"III", name:"Power", dot:"win",
+    {key:"power", num:"III", name:"Power", sub:"politics",
       theme:"Politics. <b>Pressure turning into votes, seats and laws.</b>",
       means:"the pressure turning into votes, seats and laws that hold."},
-    {key:"fault", num:"IV", name:"Fault Lines", dot:"strain",
-      theme:"Strain. <b>Building here means pressure on the system.</b>",
+    {key:"fault", num:"IV", name:"Fault Lines", sub:"strain",
+      theme:"Strain. <b>Building here means more pressure on the system.</b>",
       means:"strain rising. That is bad news for the people living it. It also marks where the system is brittle, which is where breaks come from."},
-    {key:"ledger", num:"V", name:"Their Ledger", dot:"the rich",
+    {key:"ledger", num:"V", name:"Their Ledger", sub:"the rich",
       theme:"The other side. <b>Building here means their grip loosening.</b>",
       means:"their grip loosening: less wealth at the top, more income to labor, less corporate money in elections."},
-    {key:"california", num:"VI", name:"California", dot:"home",
+    {key:"california", num:"VI", name:"California", sub:"home front",
       theme:"Home front. <b>Where a national shift would show first.</b>",
       means:"California gaining ground on its own: members, strikes, and state labor power that survives court."}
   ];
@@ -1713,10 +1736,10 @@
     weather:{label:"Weather", desc:"Polls that swing against whoever holds power. Shown, never counted."}
   };
   var ORDERS = [
-    ["I.", "Trends over readings.", "One reading is noise. The read is the direction across releases, and every gauge keeps each reading it has logged."],
+    ["I.", "Trends over readings.", "One reading is noise. The call is the direction across releases, and every gauge keeps each reading it has logged."],
     ["II.", "Watch conversion, not sentiment.", "Approval is free. Petitions, dues and strikes cost something, and they are what moved power in the 1930s and the 1960s."],
     ["III.", "Polls are weather. Membership is climate.", "Weather gauges are shown and never counted. They swing against whoever holds power."],
-    ["IV.", "Read each section on its own terms.", "In Fault Lines, building means strain. In Their Ledger, building means their grip loosening. Every pill answers one question: is the avalanche closer?"],
+    ["IV.", "Read each section on its own terms.", "In Fault Lines, building means strain. In Their Ledger, building means their grip loosening. Every call answers one question: is the avalanche closer?"],
     ["V.", "Measured data only.", "Curated logs and soft signals stay off this page. A figure without a source doesn't make the ledger."]
   ];
 
@@ -1728,25 +1751,31 @@
   function secIdx(k){ for(var i=0;i<SECTIONS.length;i++){ if(SECTIONS[i].key===k) return i; } return 99; }
   function num(v){ var n = +v; return isFinite(n) ? n : null; }
   function readOf(g){ return g.weather ? "weather" : (READS[g.read] ? g.read : "baseline"); }
-  function sortGauges(arr){
-    return arr.slice().sort(function(a,b){ return (secIdx(a.section)-secIdx(b.section)) || ((+a.order||0)-(+b.order||0)); });
-  }
-  function tally(list){
-    var t = {building:0, holding:0, eroding:0, baseline:0, weather:0};
-    list.forEach(function(g){ t[readOf(g)]++; });
-    return t;
-  }
-  function arrow(dir){ return dir==="up" ? "&#9650;" : dir==="down" ? "&#9660;" : dir==="flat" ? "&#9632;" : ""; }
-  function pill(read){ return '<span class="pill p-'+read+'">'+esc(READS[read].label)+'</span>'; }
+  function sortGauges(arr){ return arr.slice().sort(function(a,b){ return (secIdx(a.section)-secIdx(b.section)) || ((+a.order||0)-(+b.order||0)); }); }
+  function tally(list){ var t = {building:0, holding:0, eroding:0, baseline:0, weather:0}; list.forEach(function(g){ t[readOf(g)]++; }); return t; }
+  function gaugeBy(id){ for(var i=0;i<state.gauges.length;i++){ if(state.gauges[i].id===id) return state.gauges[i]; } return null; }
   var reduceMotion = false;
   try{ reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){}
 
+  function icon(read){
+    var s = '<svg class="ic ic-'+read+'" viewBox="0 0 12 12" aria-hidden="true">';
+    if(read==="building") s += '<path d="M6 1.5 11 10.5H1Z"/>';
+    else if(read==="eroding") s += '<path d="M6 10.5 11 1.5H1Z"/>';
+    else if(read==="holding") s += '<rect x="1.5" y="1.5" width="9" height="9" rx="2"/>';
+    else if(read==="baseline") s += '<circle cx="6" cy="6" r="4"/>';
+    else s += '<path d="M1.5 5c1.5-2 3-2 4.5 0s3 2 4.5 0M1.5 9c1.5-2 3-2 4.5 0s3 2 4.5 0"/>';
+    return s + '</svg>';
+  }
+  function pill(read){ return '<span class="pill p-'+read+'">'+icon(read)+esc(READS[read].label)+'</span>'; }
+  function counts(t){
+    return '<span class="counts"><span>'+icon("building")+t.building+' building</span><span>'+icon("holding")+t.holding+' holding</span><span>'+icon("eroding")+t.eroding+' eroding</span></span>';
+  }
+  function countsShort(t){
+    return '<span class="counts" aria-label="'+t.building+' building, '+t.holding+' holding, '+t.eroding+' eroding"><span>'+icon("building")+t.building+'</span><span>'+icon("holding")+t.holding+'</span><span>'+icon("eroding")+t.eroding+'</span></span>';
+  }
+
   /* ---------- state ---------- */
-  var state = {
-    meta: Object.assign({}, SEED.meta),
-    gauges: sortGauges(SEED.gauges),
-    tab: "read"
-  };
+  var state = { meta: Object.assign({}, SEED.meta), gauges: sortGauges(SEED.gauges), tab: "read" };
   function validTab(k){ return k==="read" || k==="about" || !!secBy(k); }
 
   /* ---------- sparkline ---------- */
@@ -1762,7 +1791,7 @@
     }).filter(function(s){ return s.pts.length; });
     if(!series.length || longest < 3) return "";
 
-    var W=280, H=82, L=14, R=266, T=22, B=60;
+    var W=300, H=90, L=16, R=284, T=24, B=66;
     var xs=[], vs=[];
     series.forEach(function(s){ s.pts.forEach(function(p){ xs.push(p.x); vs.push(p.v); }); });
     var x0=Math.min.apply(null,xs), x1=Math.max.apply(null,xs);
@@ -1783,7 +1812,7 @@
     if(ref){
       var ry=f(Y(+ref.v));
       o += '<line class="ref" x1="'+L+'" x2="'+R+'" y1="'+ry+'" y2="'+ry+'"/>';
-      o += '<text class="reflab" x="'+R+'" y="'+f(ry-4)+'" text-anchor="end">'+esc(ref.label||"")+'</text>';
+      o += '<text class="reflab" x="'+R+'" y="'+f(ry-5)+'" text-anchor="end">'+esc(ref.label||"")+'</text>';
     }
     series.forEach(function(s, si){
       var d = s.pts.map(function(p,i){ return (i?"L":"M")+f(X(p.x))+" "+f(Y(p.v)); }).join(" ");
@@ -1793,14 +1822,15 @@
       o += '<path class="ln'+(si?' s2':'')+'" d="'+d+'"/>';
       s.pts.forEach(function(p,i){
         var last = i===s.pts.length-1;
-        o += '<circle class="'+(last?'end':'pt')+'" cx="'+f(X(p.x))+'" cy="'+f(Y(p.v))+'" r="'+(last?3.2:2)+'"/>';
+        if(last && si===0) o += '<circle class="end" cx="'+f(X(p.x))+'" cy="'+f(Y(p.v))+'" r="5"/>';
+        else o += '<circle class="pt" cx="'+f(X(p.x))+'" cy="'+f(Y(p.v))+'" r="'+(last?3.2:2.4)+'"/>';
       });
       [0, s.pts.length-1].forEach(function(i, k){
         if(k===1 && s.pts.length===1) return;
         var p = s.pts[i], px=X(p.x), py=Y(p.v);
-        var below = si>0 || py-8 < 9;
-        var ty = below ? py+14 : py-8;
-        var anchor = px < L+26 ? "start" : (px > R-26 ? "end" : "middle");
+        var below = si>0 || py-10 < 11;
+        var ty = below ? py+17 : py-10;
+        var anchor = px < L+28 ? "start" : (px > R-28 ? "end" : "middle");
         o += '<text class="'+(k===1?'lab-end':'lab')+'" x="'+f(px)+'" y="'+f(ty)+'" text-anchor="'+anchor+'">'+esc(p.label!=null?p.label:p.v)+'</text>';
       });
     });
@@ -1816,10 +1846,9 @@
   }
 
   /* ---------- gauge card ---------- */
+  var LINK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
   function card(g){
     var r = readOf(g), latest = g.latest || {};
-    var tags = pill(g.read && READS[g.read] ? g.read : "baseline");
-    if(g.weather) tags = pill("weather");
     var sp = spark(g);
     var tl = Array.isArray(g.timeline) ? g.timeline.filter(function(t){ return t && (t.when || t.what); }) : [];
     var viz = "", stack = false;
@@ -1830,16 +1859,17 @@
     } else if(g.prior){
       viz = '<div class="tn"><div><span class="tn-lab">Before</span><span class="tn-val">'+esc(g.prior)+'</span></div>'+
             '<div class="tn-arrow" aria-hidden="true">&rarr;</div>'+
-            '<div class="now"><span class="tn-lab">Now</span><span class="tn-val">'+esc(latest.label)+(latest.period?' <span class="g-prior">'+esc(latest.period)+'</span>':'')+'</span></div></div>';
+            '<div class="now"><span class="tn-lab">Now</span><span class="tn-val">'+esc(latest.label)+(latest.period?', '+esc(latest.period):'')+'</span></div></div>';
     }
-    var h = '<article class="gauge r-'+r+'" id="g-'+esc(g.id)+'">';
-    h += '<header class="g-head"><h3 class="g-name">'+esc(g.name)+'</h3><div class="g-tags">'+tags+'</div></header>';
+    var h = '<article class="panel gauge r-'+r+'" id="g-'+esc(g.id)+'">';
+    h += '<header class="g-head"><h3 class="g-name">'+esc(g.name)+'</h3>'+pill(r)+'</header>';
+    if(g.plain) h += '<p class="g-plain">'+esc(g.plain)+'</p>';
     h += '<div class="g-body'+(stack?' stack':'')+'"><div class="g-fig">';
     h += '<div class="g-val">'+esc(latest.label)+'</div>';
     if(latest.period) h += '<div class="g-per">'+esc(latest.period)+'</div>';
     if(latest.sub) h += '<div class="g-sub">'+esc(latest.sub)+'</div>';
-    if(g.change) h += '<div class="g-chg">'+(arrow(g.dir)?'<span class="arr" aria-hidden="true">'+arrow(g.dir)+'</span> ':'')+esc(g.change)+'</div>';
-    if(g.prior && (sp || stack)) h += '<div class="g-prior">Prior: '+esc(g.prior)+'</div>';
+    if(g.change) h += '<div class="g-chg">'+esc(g.change)+'</div>';
+    if(g.prior && (sp || stack)) h += '<div class="g-prior">Before: '+esc(g.prior)+'</div>';
     h += '</div>' + (viz ? '<div class="g-viz">'+viz+'</div>' : '') + '</div>';
     if(g.why) h += '<p class="g-why">'+esc(g.why)+'</p>';
     var meta = "";
@@ -1855,17 +1885,18 @@
       var u = safeUrl(s && s.url);
       if(u) foot.push('<a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+esc(s.name||"Source")+'</a>');
     });
-    if(foot.length) h += '<footer class="g-foot">'+foot.join("")+'</footer>';
+    foot.push('<button class="copy" type="button" data-copy="'+esc(g.id)+'">'+LINK_SVG+'Copy link</button>');
+    h += '<footer class="g-foot">'+foot.join("")+'</footer>';
     h += '</article>';
     return h;
   }
 
   /* ---------- pieces ---------- */
   function tile(read, n, sub){
-    return '<div class="tile"><div class="tile-val v-'+read+'">'+n+'</div><div class="tile-lab">'+READS[read].label+'</div>'+(sub?'<div class="tile-sub">'+sub+'</div>':'')+'</div>';
+    return '<div class="tile"><div class="tile-top">'+icon(read)+esc(READS[read].label)+'</div><div class="tile-val">'+n+'</div>'+(sub?'<div class="tile-sub">'+sub+'</div>':'')+'</div>';
   }
-  function counts(t){
-    return '<span class="cb">'+t.building+' building</span> &middot; <span class="ch">'+t.holding+' holding</span> &middot; <span class="ce">'+t.eroding+' eroding</span>';
+  function keyLine(){
+    return '<p class="key"><span>'+icon("building")+'<b>Building</b> toward the break</span><span>'+icon("holding")+'<b>Holding</b> little change</span><span>'+icon("eroding")+'<b>Eroding</b> away from the break</span></p>';
   }
   function sbar(s){
     var gs = state.gauges.filter(function(g){ return g.section===s.key; });
@@ -1874,47 +1905,46 @@
     var segs = (t.building?'<span class="seg b" style="width:'+w("building")+'"></span>':'')+
                (t.holding?'<span class="seg h" style="width:'+w("holding")+'"></span>':'')+
                (t.eroding?'<span class="seg e" style="width:'+w("eroding")+'"></span>':'');
-    return '<button class="sbar" type="button" data-go="'+s.key+'" aria-label="Open '+esc(s.name)+'">'+
-      '<span class="sbar-head"><span class="sbar-name"><span class="n">'+s.num+'</span>'+esc(s.name)+'</span><span class="sbar-counts">'+counts(t)+'</span></span>'+
-      '<span class="sbar-track" aria-hidden="true">'+segs+'</span></button>';
+    return '<button class="sbar" type="button" data-go="'+s.key+'" aria-label="Open '+esc(s.name)+': '+t.building+' building, '+t.holding+' holding, '+t.eroding+' eroding">'+
+      '<span class="sbar-head"><span class="sbar-name"><span class="n">'+s.num+'</span>'+esc(s.name)+'</span>'+counts(t)+'</span>'+
+      '<span class="track" aria-hidden="true">'+segs+'</span></button>';
   }
   function wireGroup(s){
     var gs = state.gauges.filter(function(g){ return g.section===s.key; });
     if(!gs.length) return "";
-    var t = tally(gs);
-    var h = '<div class="wire-sec"><span><b>'+s.num+'.</b> '+esc(s.name)+'</span><span>'+t.building+'&#9650; '+t.holding+'&#9632; '+t.eroding+'&#9660;</span></div>';
+    var h = '<div class="wire-sec"><span>'+s.num+'. '+esc(s.name)+'</span>'+countsShort(tally(gs))+'</div>';
     gs.forEach(function(g){
       var r = readOf(g), l = g.latest || {};
-      h += '<button class="wire-row r-'+r+'" type="button" data-go="'+s.key+'" data-id="'+esc(g.id)+'">'+
+      h += '<button class="wire-row" type="button" data-go="'+s.key+'" data-id="'+esc(g.id)+'">'+
         '<span class="w-name">'+esc(g.name)+'</span>'+
         '<span class="w-val">'+esc(l.label)+(l.period?'<small>'+esc(l.period)+'</small>':'')+'</span>'+
-        '<span class="w-chg">'+(arrow(g.dir)?'<span class="arr" aria-hidden="true">'+arrow(g.dir)+'</span> ':'')+esc(g.change||"")+'</span>'+
+        '<span class="w-chg">'+esc(g.change||"")+'</span>'+
         '<span class="w-pill">'+pill(r)+'</span></button>';
     });
     return h;
   }
-  function ordersCard(){
-    return '<section class="card"><div class="sec-label">Standing Orders</div>'+
+  function ordersPanel(){
+    return '<section class="panel"><h2 class="h2">Standing orders</h2>'+
       ORDERS.map(function(o){ return '<div class="principle"><h4><span class="n">'+o[0]+'</span>'+esc(o[1])+'</h4><p>'+esc(o[2])+'</p></div>'; }).join("")+'</section>';
   }
-  function pressCard(key){
+  function pressPanel(key){
     var up = (Array.isArray(state.meta.upcoming)?state.meta.upcoming:[]).filter(function(u){ return u && (!key || u.section===key); });
-    var h = '<section class="card"><div class="sec-label">Coming Off the Press <span class="meta">approx.</span></div>';
+    var h = '<section class="panel"><div class="h-row"><h2 class="h2">Coming up</h2><span class="meta">approximate dates</span></div>';
     if(!up.length) h += '<p class="empty">No releases expected for this section in the next few months.</p>';
     else h += '<ul class="press">' + up.map(function(u){
       var s = secBy(u.section);
-      return '<li><span class="when">'+esc(u.when)+'</span><span class="what">'+esc(u.what)+(s && !key?'<span class="sec">'+s.num+'. '+esc(s.name)+'</span>':'')+'</span></li>';
+      return '<li><span class="when">'+esc(u.when)+'</span><span class="what">'+esc(u.what)+(s && !key?'<span class="sec">'+esc(s.name)+'</span>':'')+'</span></li>';
     }).join("") + '</ul>';
     return h + '</section>';
   }
-  function updatesCard(){
-    return '<section class="card"><div class="sec-label">How It Updates</div>'+
-      '<p class="note-p">On the first of each month, a scheduled AI session checks every source on this page, logs new releases as readings, applies the written rules and drafts the editor&rsquo;s read. The Standard reviews the edition before it goes out. Old readings stay, so each line grows.</p>'+
+  function updatesPanel(){
+    return '<section class="panel"><h2 class="h2">How it updates</h2>'+
+      '<p class="note-p">On the first of each month, a scheduled AI session checks every source on this page, logs new releases, applies the written rules and drafts the editor&rsquo;s read. The Standard reviews each edition before it goes out. Old readings stay, so each line grows.</p>'+
       (state.meta.nextCheck?'<p class="note-p"><b>Next edition:</b> '+esc(state.meta.nextCheck)+'</p>':'')+
       '<p class="note-p"><button class="linkish" type="button" data-tab="about">How it&rsquo;s made and how the calls work</button></p></section>';
   }
-  function legendCard(){
-    return '<section class="card"><div class="sec-label">Reading the Pills</div><div class="legend">'+
+  function legendPanel(){
+    return '<section class="panel"><h2 class="h2">Reading the calls</h2><div class="legend">'+
       ["building","holding","eroding","baseline","weather"].map(function(k){ return '<div>'+pill(k)+'<p>'+esc(READS[k].desc)+'</p></div>'; }).join("")+
       '</div></section>';
   }
@@ -1922,41 +1952,40 @@
   /* ---------- views ---------- */
   function viewRead(){
     var t = tally(state.gauges), n = t.building+t.holding+t.eroding;
-    var h = '<div class="grid"><main>';
-    h += '<div class="lede"><p>The Snowpack tracks whether pressure for large-scale economic change is building in the United States. The biggest breaks of the last century, the New Deal and the civil rights era, came after years of organizing piled up and then gave way fast. These gauges follow that buildup, the strain on the system and the other side&rsquo;s hold, using public data.</p>'+
-      '<p class="ai-note">Made largely with AI and reviewed by The Standard. Every figure links to its source. <button class="linkish" type="button" data-tab="about">How it&rsquo;s made</button></p></div>';
-    h += '<div class="sec-label">The Read <span class="meta">'+n+' counted gauges</span></div>';
+    var h = '<div class="grid"><div class="col">';
+    h += '<section class="panel lede"><p>The Snowpack tracks whether pressure for large-scale economic change is building in the United States. The biggest breaks of the last century, the New Deal and the civil rights era, came after years of organizing piled up and then gave way fast. These gauges follow that buildup, the strain on the system and the other side&rsquo;s hold, using public data.</p>'+
+      '<p class="ai-note">Made largely with AI and reviewed by The Standard. Every figure links to its source. <button class="linkish" type="button" data-tab="about">How it&rsquo;s made</button></p></section>';
+    h += '<section class="panel"><div class="h-row"><h2 class="h2">The read</h2><span class="meta">'+n+' gauges counted</span></div>';
     h += '<div class="tally">'+tile("building",t.building,"toward the break")+tile("holding",t.holding,"little change")+tile("eroding",t.eroding,"away from the break")+'</div>';
+    h += keyLine();
     var nc = [];
-    if(t.weather) nc.push(t.weather+" weather");
-    if(t.baseline) nc.push(t.baseline+" baseline");
-    h += '<p class="tally-foot">'+(nc.length?'Not counted: '+nc.join(", ")+'.':'&nbsp;')+'</p>';
-    if(state.meta.editorsRead) h += '<div class="editors"><div class="ed-lab">Editor&rsquo;s read &middot; drafted with AI</div><p>'+esc(state.meta.editorsRead)+'</p></div>';
-    h += '<div class="sec-label">Where It&rsquo;s Building <span class="meta">by section</span></div>';
-    h += '<div class="sbars">'+SECTIONS.map(sbar).join("")+'</div>';
-    h += '<div class="sec-label">The Wire <span class="meta">every gauge &middot; tap for detail</span></div>';
-    h += '<div class="wire">'+SECTIONS.map(wireGroup).join("")+'</div>';
-    h += '</main><aside>'+ordersCard()+pressCard(null)+updatesCard()+'</aside></div>';
+    if(t.weather) nc.push(t.weather+" weather gauge");
+    if(t.baseline) nc.push(t.baseline+" baseline gauge");
+    h += '<p class="key-note">'+(nc.length?'Not counted: '+nc.join(" and ")+'. ':'')+'<button class="linkish" type="button" data-tab="about">How the calls work</button></p>';
+    if(state.meta.editorsRead) h += '<div class="editors" style="margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)"><span class="label">Editor&rsquo;s read &middot; drafted with AI</span><p>'+esc(state.meta.editorsRead)+'</p></div>';
+    h += '</section>';
+    h += '<section class="panel"><div class="h-row"><h2 class="h2">Where it&rsquo;s building</h2><span class="meta">tap a section to open it</span></div><div class="sbars">'+SECTIONS.map(sbar).join("")+'</div></section>';
+    h += '<section class="panel"><div class="h-row"><h2 class="h2">Every gauge</h2><span class="meta">tap one for detail</span></div><div class="wire">'+SECTIONS.map(wireGroup).join("")+'</div></section>';
+    h += '</div><aside class="col">'+ordersPanel()+pressPanel(null)+updatesPanel()+'</aside></div>';
     return h;
   }
   function viewSection(key){
     var s = secBy(key), gs = state.gauges.filter(function(g){ return g.section===key; });
     var t = tally(gs);
-    var h = '<div class="grid"><main>';
-    h += '<div class="sec-label">'+s.num+'. '+esc(s.name)+' <span class="meta">'+gs.length+' gauges</span></div>';
-    h += '<p class="means"><b>Building means</b> '+esc(s.means)+'</p>';
+    var h = '<div class="grid"><div class="col">';
+    h += '<section class="panel"><div class="h-row"><h2 class="h2">'+s.num+'. '+esc(s.name)+'</h2><span class="meta">'+gs.length+' gauges</span></div>'+
+         '<p class="means"><b>Building means</b> '+esc(s.means)+'</p>'+keyLine()+'</section>';
     h += gs.length ? gs.map(card).join("") : '<p class="empty">No gauges logged here yet.</p>';
-    h += '</main><aside>';
-    h += '<section class="card"><div class="sec-label">This Section</div><div class="mini">'+tile("building",t.building,"")+tile("holding",t.holding,"")+tile("eroding",t.eroding,"")+'</div>'+
-         ((t.weather||t.baseline)?'<p class="tally-foot" style="margin:8px 0 0">Not counted: '+[t.weather?t.weather+" weather":"",t.baseline?t.baseline+" baseline":""].filter(Boolean).join(", ")+'.</p>':'')+'</section>';
-    h += pressCard(key) + legendCard();
+    h += '</div><aside class="col">';
+    h += '<section class="panel"><h2 class="h2">This section</h2><div class="mini">'+tile("building",t.building,"")+tile("holding",t.holding,"")+tile("eroding",t.eroding,"")+'</div>'+
+         ((t.weather||t.baseline)?'<p class="key-note">Not counted: '+[t.weather?t.weather+" weather":"",t.baseline?t.baseline+" baseline":""].filter(Boolean).join(" and ")+'.</p>':'')+'</section>';
+    h += pressPanel(key) + legendPanel();
     h += '</aside></div>';
     return h;
   }
-
   function viewAbout(){
-    var m = state.meta, h = '<div class="grid"><main>';
-    h += '<div class="sec-label">About &amp; Method <span class="meta">'+(m.editionNo?'edition No. '+esc(m.editionNo):'')+'</span></div><div class="about">';
+    var m = state.meta, h = '<div class="grid"><div class="col"><section class="panel about">';
+    h += '<div class="h-row"><h2 class="h2">About and method</h2><span class="meta">'+(m.editionNo?'Edition No. '+esc(m.editionNo):'')+'</span></div>';
     h += '<h3>What this is</h3>';
     h += '<p>The Snowpack tracks whether pressure for large-scale economic change is building in the United States. The biggest breaks of the last century, the New Deal and the civil rights era, came after years of organizing piled up and then gave way fast. From the inside, that buildup looked like nothing was happening.</p>';
     h += '<p>So this page watches the buildup. Its gauges cover six things: how many people are organizing, how many are taking action, whether that turns into political power, how much strain the system is under, how tight the other side&rsquo;s grip is, and how California compares. Each gauge gets a call once a month: building, holding or eroding.</p>';
@@ -1984,24 +2013,26 @@
     var corr = Array.isArray(m.corrections) ? m.corrections.filter(function(c){ return c && c.text; }) : [];
     if(corr.length) h += '<ul class="corr">'+corr.map(function(c){ return '<li><span class="when">'+esc(c.date||"")+'</span><span>'+esc(c.text)+'</span></li>'; }).join("")+'</ul>';
     else h += '<p>None so far.</p>';
-    h += '</div></main><aside>'+legendCard()+ordersCard()+updatesCard()+'</aside></div>';
+    h += '</section></div><aside class="col">'+legendPanel()+ordersPanel()+updatesPanel()+'</aside></div>';
     return h;
   }
 
   /* ---------- chrome ---------- */
-  var TABS = [{key:"read", label:"The Read", dot:"summary"}].concat(SECTIONS.map(function(s){ return {key:s.key, label:s.num+" &middot; "+s.name, dot:s.dot}; }), [{key:"about", label:"About", dot:"how it&rsquo;s made"}]);
+  var TABS = [{key:"read", label:"The Read", sub:"summary"}]
+    .concat(SECTIONS.map(function(s){ return {key:s.key, label:s.name, sub:s.sub}; }))
+    .concat([{key:"about", label:"About", sub:"how it&rsquo;s made"}]);
   function renderTabs(){
     $("tabs").innerHTML = TABS.map(function(t){
-      return '<button class="tab'+(t.key==="read"?' tab-read':'')+'" role="tab" type="button" data-tab="'+t.key+'" aria-selected="'+(state.tab===t.key)+'">'+t.label+'<span class="dot">'+t.dot+'</span></button>';
+      return '<button class="tab" role="tab" type="button" data-tab="'+t.key+'" aria-selected="'+(state.tab===t.key)+'">'+t.label+'<span class="sub">'+t.sub+'</span></button>';
     }).join("");
   }
   function renderDateline(){
     var m = state.meta, parts = [];
-    if(m.editionNo) parts.push("Edition No. "+esc(m.editionNo));
-    if(m.editionLabel) parts.push(esc(m.editionLabel));
-    parts.push('<button class="dl-btn" type="button" data-tab="about">Made largely with AI</button>');
-    if(m.nextCheck) parts.push("Next edition "+esc(m.nextCheck));
-    $("dateline").innerHTML = parts.map(function(p){ return "<span>"+p+"</span>"; }).join("");
+    if(m.editionNo) parts.push('<span class="chip">Edition No. '+esc(m.editionNo)+'</span>');
+    if(m.editionLabel) parts.push('<span class="chip">'+esc(m.editionLabel)+'</span>');
+    parts.push('<button class="chip" type="button" data-tab="about">Made largely with AI</button>');
+    if(m.nextCheck) parts.push('<span class="chip">Next edition '+esc(m.nextCheck)+'</span>');
+    $("dateline").innerHTML = parts.join("");
   }
   function renderTheme(){
     if(state.tab==="read"){
@@ -2023,24 +2054,55 @@
     var changed = state.tab !== key;
     state.tab = key;
     try{ localStorage.setItem("snowpack:tab", key); }catch(e){}
-    try{ history.replaceState(null, "", "#"+key); }catch(e){}
+    try{ history.replaceState(null, "", "#"+(focusId || key)); }catch(e){}
     render();
     if(focusId){
       var el = $("g-"+focusId);
       if(el){
         el.scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block:"start"});
         el.classList.add("flash");
-        setTimeout(function(){ el.classList.remove("flash"); }, 1900);
+        setTimeout(function(){ el.classList.remove("flash"); }, 2100);
       }
     } else if(changed){
       var tabs = $("tabs");
       if(tabs && tabs.getBoundingClientRect().top < 0) tabs.scrollIntoView({block:"start"});
     }
   }
+  function goHash(k){
+    if(!k) return false;
+    if(validTab(k)){ setTab(k); return true; }
+    var g = gaugeBy(k);
+    if(g && secBy(g.section)){ setTab(g.section, g.id); return true; }
+    return false;
+  }
+
+  /* ---------- copy link ---------- */
+  var toastTimer = null;
+  function toast(html, ms){
+    var t = $("toast");
+    t.innerHTML = html; t.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.hidden = true; }, ms || 2200);
+  }
+  function copyLink(id){
+    var base = safeUrl(state.meta.publicUrl) || String(location.href).split("#")[0];
+    var url = base + "#" + id;
+    function fallback(){
+      toast('Copy this link:<input type="text" readonly value="'+esc(url)+'" aria-label="Link to this gauge">', 8000);
+      var inp = document.querySelector("#toast input");
+      if(inp){ inp.focus(); inp.select(); }
+    }
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){ toast("Link copied"); }, fallback);
+      } else fallback();
+    }catch(e){ fallback(); }
+  }
 
   document.addEventListener("click", function(e){
-    var t = e.target.closest ? e.target.closest("[data-tab],[data-go]") : null;
+    var t = e.target.closest ? e.target.closest("[data-tab],[data-go],[data-copy]") : null;
     if(!t) return;
+    if(t.hasAttribute("data-copy")){ copyLink(t.getAttribute("data-copy")); return; }
     if(t.hasAttribute("data-tab")){ setTab(t.getAttribute("data-tab")); return; }
     setTab(t.getAttribute("data-go"), t.getAttribute("data-id"));
   });
@@ -2056,16 +2118,16 @@
   });
   window.addEventListener("hashchange", function(){
     var k = (location.hash||"").replace("#","");
-    if(k && k!==state.tab && validTab(k)) setTab(k);
+    if(k && k!==state.tab) goHash(k);
   });
 
   /* ---------- boot ---------- */
   var start = (location.hash||"").replace("#","");
-  if(!validTab(start)){
-    try{ start = localStorage.getItem("snowpack:tab") || "read"; }catch(e){ start = "read"; }
-  }
-  state.tab = validTab(start) ? start : "read";
+  var stored = "read";
+  try{ stored = localStorage.getItem("snowpack:tab") || "read"; }catch(e){}
+  state.tab = validTab(stored) ? stored : "read";
   render();
+  if(start && start!==state.tab) goHash(start);
 })();
 </script>
 </body>
